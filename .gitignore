@@ -1,0 +1,9 @@
+/bitrix
+/upload
+.nbproject
+.idea
+node_modules
+bower_components
+log.txt
+license_key.php
+
