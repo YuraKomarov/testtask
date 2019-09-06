@@ -1,7 +1,7 @@
 <?
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
-$APPLICATION->SetTitle(" ");
-?> 
+$APPLICATION->SetTitle("");
+?>
 <p><?$APPLICATION->IncludeComponent("bitrix:blog", "one_blog", array(
 	"MESSAGE_COUNT" => "10",
 	"PERIOD_DAYS" => "30",
