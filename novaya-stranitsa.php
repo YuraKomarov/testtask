@@ -1,10 +1,15 @@
 <?
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("Новая страница");
-?>Text here....
-<? die("123");
-if (CModule::IncludeModule("komarov.ddemo")){
-    Komarov\Ddemo\Test::get();
-}
 ?>
+<?
+$APPLICATION->IncludeComponent(
+    "komarov:ddemo.content",
+    "",
+    Array(
+        "IBLOCK_ID" => 2,
+        "COMMENTS_HIGHLOADBLOCK_ID" => 2,
+    )
+);?>
+
 <?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

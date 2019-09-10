@@ -1,0 +1,9 @@
+.preview-picture{
+    display: inline-block;
+    width: 14%;
+}
+
+.content-text-block{
+    display: inline-block;
+    max-width: 85%;
+}
