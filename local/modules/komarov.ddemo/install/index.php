@@ -6,6 +6,8 @@ IncludeModuleLangFile(__FILE__);
 use \Bitrix\Main\ModuleManager;
 use Komarov\Ddemo\LinkType;
 use Bitrix\Main\EventManager;
+use \Bitrix\Main\Loader;
+use Sprint\Migration;
 
 Class komarov_ddemo extends CModule
 {
@@ -27,9 +29,12 @@ Class komarov_ddemo extends CModule
 
     function DoInstall()
     {
+        $this->InstallDB();
         RegisterModule($this->MODULE_ID);
+
         $this->InstallEvents();
         $this->InstallFiles();
+
         return true;
     }
 
@@ -74,7 +79,19 @@ Class komarov_ddemo extends CModule
 
     function UnInstallFiles()
     {
-        DeleteDirFiles($_SERVER["DOCUMENT_ROOT"]."/local/modules/komarov.ddemo/install/components/", $_SERVER["DOCUMENT_ROOT"]."/local/components");
+        DeleteDirFiles($_SERVER["DOCUMENT_ROOT"]."/local/modules/komarov.ddemo/install/components/", $_SERVER["DOCUMENT_ROOT"]."/local/components/");
         return true;
+    }
+
+    function InstallDB()
+    {
+        if(Loader::includeModule("sprint.migration")){
+            CommentsHighloadBlock20190913165909::up();
+        }
+    }
+
+    function UnInstallDB()
+    {
+
     }
 }

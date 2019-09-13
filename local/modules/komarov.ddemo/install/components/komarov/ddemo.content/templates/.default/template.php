@@ -3,11 +3,13 @@ if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true){
     die();
 }
 ?>
-<? if($arResult):?>
+<?php if($arResult):?>
     <div class="content-wrapper">
-        <? foreach($arResult as $item):?>
-            <?
-            $renderImage = CFile::ResizeImageGet($item['PREVIEW_PICTURE'], Array("width" => 128, "height" => 128), BX_RESIZE_IMAGE_EXACT, false);
+        <?php foreach($arResult as $item):?>
+            <?php
+            $renderImage = CFile::ResizeImageGet(
+                    $item['PREVIEW_PICTURE'], Array("width" => 128, "height" => 128),
+                    BX_RESIZE_IMAGE_EXACT, false);
             ?>
             <div class="content-item">
                 <div class="preview-picture">
@@ -28,4 +30,4 @@ if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true){
     </div>
 <?endif;?>
 <?
-echo "SERVER<pre>".print_r($arResult, true)."</pre>";
+//echo "SERVER<pre>".print_r($arResult, true)."</pre>";

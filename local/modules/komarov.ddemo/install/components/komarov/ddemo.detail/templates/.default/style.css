@@ -1,0 +1,31 @@
+.form-wrapper > form > div >  [type="text"] {
+    width: 100%;
+    margin: 0 0 10px 0;
+}
+
+.comments-text{
+    width: 100%;
+}
+
+.form-wrapper{
+    display: none;
+    margin: 30px 0 0 0 ;
+}
+
+.comments-button{
+    margin: 20px 0 20px 0;
+}
+
+.detail-text-block{
+    margin: 20px 0 0 0;
+}
+
+.comment-block{
+    padding: 15px 0 15px 0;
+    border-bottom: 1px solid darkgray;
+}
+
+.form-title{
+    margin: 0 0 10px 0;
+    font-size: 1.2rem;
+}
