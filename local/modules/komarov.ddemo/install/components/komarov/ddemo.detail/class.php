@@ -40,17 +40,16 @@ class DdemoDetail extends CBitrixComponent implements Controllerable
         ];
     }
 
-
     public function getCommentsAction($showComments, $params){
 
         $signer = new \Bitrix\Main\Component\ParameterSigner;
         $parameters = $signer->unsignParameters($this->__name, $params);
         $hlId = $parameters['HL_ID'];
+
         $contentId = $parameters['CONTENT_ID'];
 
         if($showComments){
             if($this->chekModules()){
-
                 $hlblock = HL\HighloadBlockTable::getById($hlId)->fetch();
                 $entity = HL\HighloadBlockTable::compileEntity($hlblock);
                 $entity_data_class = $entity->getDataClass();
@@ -72,14 +71,13 @@ class DdemoDetail extends CBitrixComponent implements Controllerable
 
     }
 
-    public function addCommentAction($comment, $params){
-
+    public function addCommentAction($comment, $params)
+    {
         $signer = new \Bitrix\Main\Component\ParameterSigner;
         $parameters = $signer->unsignParameters($this->__name, $params);
         $hlId = $parameters['HL_ID'];
         $contentId = $parameters['CONTENT_ID'];
         if($this->chekModules()){
-
             $hlblock = HL\HighloadBlockTable::getById($hlId)->fetch();
             $entity = HL\HighloadBlockTable::compileEntity($hlblock);
             $entity_data_class = $entity->getDataClass();
@@ -95,7 +93,6 @@ class DdemoDetail extends CBitrixComponent implements Controllerable
             }
 
             if($result->isSuccess()){
-
                 $allComments = [];
 
                 $rsData = $entity_data_class::getList(array(
@@ -120,13 +117,11 @@ class DdemoDetail extends CBitrixComponent implements Controllerable
         $iblockId = $this->arParams['IBLOCK_ID'];
 
         if($this->chekModules()){
-
             $arSelect = [];
             $arFilter = ['IBLOCK_ID'=>$iblockId, 'ACTIVE'=>'Y', 'ID' => $contentId];
             $res = CIBlockElement::GetList([], $arFilter, false, [], $arSelect);
             $item = [];
-            while($ob = $res->GetNextElement())
-            {
+            while($ob = $res->GetNextElement()) {
                 $arFields = $ob->GetFields();
                 $item[] = $arFields;
             }

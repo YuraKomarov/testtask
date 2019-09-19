@@ -1,13 +1,12 @@
 <?php
-//namespace Komarov\Ddemo;
 
 IncludeModuleLangFile(__FILE__);
 
 use \Bitrix\Main\ModuleManager;
+use Komarov\Ddemo\HlMigration;
 use Komarov\Ddemo\LinkType;
 use Bitrix\Main\EventManager;
 use \Bitrix\Main\Loader;
-use Sprint\Migration;
 
 Class komarov_ddemo extends CModule
 {
@@ -29,9 +28,8 @@ Class komarov_ddemo extends CModule
 
     function DoInstall()
     {
-        $this->InstallDB();
         RegisterModule($this->MODULE_ID);
-
+        $this->InstallDB();
         $this->InstallEvents();
         $this->InstallFiles();
 
@@ -40,7 +38,9 @@ Class komarov_ddemo extends CModule
 
     function DoUninstall()
     {
+        $this->UnInstallDB();
         UnRegisterModule($this->MODULE_ID);
+
         $this->UnInstallEvents();
         $this->UnInstallFiles();
         return true;
@@ -83,15 +83,20 @@ Class komarov_ddemo extends CModule
         return true;
     }
 
+
+
     function InstallDB()
     {
-        if(Loader::includeModule("sprint.migration")){
-            CommentsHighloadBlock20190913165909::up();
-        }
+        require($_SERVER['DOCUMENT_ROOT'] . "/local/modules/komarov.ddemo/install/db/hlMigration.php");
+        $hlMigration = new HlMigration();
+        $hlMigration->execute();
     }
 
     function UnInstallDB()
     {
-
+        require($_SERVER['DOCUMENT_ROOT'] . "/local/modules/komarov.ddemo/install/db/hlMigration.php");
+        //HlMigration::test();
+        $hlMigration = new HlMigration();
+        $hlMigration->delete();
     }
 }

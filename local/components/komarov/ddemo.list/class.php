@@ -2,7 +2,7 @@
 
 use \Bitrix\Main\Loader;
 
-class DdemoContent extends CBitrixComponent
+class DdemoList extends CBitrixComponent
 {
     private function checkModules()
     {

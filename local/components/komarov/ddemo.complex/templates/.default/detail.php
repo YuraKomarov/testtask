@@ -3,15 +3,15 @@ require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("Детальная страница");
 ?>
 <?php
-$contentId = (!empty($_GET['ID'])) ? $_GET['ID'] : '';
 $APPLICATION->IncludeComponent(
     'komarov:ddemo.detail',
     '',
     Array(
-        'CONTENT_ID' => $contentId,
-        'IBLOCK_ID' => 2,
-        'HL_ID' => 10
-    )
+        'CONTENT_ID' => $arResult['ELEMENT_ID'],
+        'IBLOCK_ID' => $arParams['IBLOCK_ID'],
+        'HL_ID' => $arParams['HL_ID'],
+    ),
+    $component
 );?>
 <?php
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");

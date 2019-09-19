@@ -7,9 +7,10 @@ $APPLICATION->IncludeComponent(
     "komarov:ddemo.list",
     "",
     Array(
-        "IBLOCK_ID" => 2,
+        "IBLOCK_ID" => $arParams['IBLOCK_ID'],
         "JSON" => false
-    )
+    ),
+    $component
 );?>
 
 <?php
