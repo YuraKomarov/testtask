@@ -6,7 +6,7 @@ class DdemoList extends CBitrixComponent
 {
     private function checkModules()
     {
-        if(!Loader::includeModule("iblock")){
+        if(!Loader::includeModule('iblock')){
             return false;
         }
         return true;
@@ -19,7 +19,7 @@ class DdemoList extends CBitrixComponent
         if($this->checkModules()){
             $arSelect = [];
             $allItems = [];
-            $arFilter = ["IBLOCK_ID"=>$iblockId, "ACTIVE"=>"Y"];
+            $arFilter = ['IBLOCK_ID'=>$iblockId, 'ACTIVE'=>'Y'];
             $res = CIBlockElement::GetList([], $arFilter, false, [], $arSelect);
 
             while($ob = $res->GetNextElement()){
@@ -45,7 +45,7 @@ class DdemoList extends CBitrixComponent
         if($this->checkModules()){
             $arSelect = ['DATE_CREATE', 'NAME', 'PREVIEW_TEXT'];
             $allItems = [];
-            $arFilter = ["IBLOCK_ID"=>$iblockId, "ACTIVE"=>"Y"];
+            $arFilter = ['IBLOCK_ID'=>$iblockId, 'ACTIVE'=>'Y'];
             $res = CIBlockElement::GetList(['ID' => 'asc'], $arFilter, false, $arNav, $arSelect);
 
             $i = 0;
@@ -57,7 +57,7 @@ class DdemoList extends CBitrixComponent
                 $i++;
             }
             $json = json_encode($allItems);
-            echo "<pre>".print_r($json, true)."</pre>";exit();
+            echo '<pre>'.print_r($json, true).'</pre>';exit();
         }
     }
 

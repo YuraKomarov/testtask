@@ -10,7 +10,7 @@ class DdemoDetail extends CBitrixComponent implements Controllerable
 {
     private function chekModules()
     {
-        if(Loader::includeModule("iblock") && Loader::includeModule("highloadblock")){
+        if(Loader::includeModule('iblock') && Loader::includeModule('highloadblock')){
             return true;
         }
         return false;
@@ -55,9 +55,9 @@ class DdemoDetail extends CBitrixComponent implements Controllerable
                 $entity_data_class = $entity->getDataClass();
 
                 $rsData = $entity_data_class::getList(array(
-                    "select" => array("*"),
-                    "order" => array("ID" => "ASC"),
-                    "filter" => array('UF_CONTENT_ID' => $contentId)
+                    'select' => array('*'),
+                    'order' => array('ID' => 'ASC'),
+                    'filter' => array('UF_CONTENT_ID' => $contentId)
                 ));
                 $allComments = [];
 
@@ -96,9 +96,9 @@ class DdemoDetail extends CBitrixComponent implements Controllerable
                 $allComments = [];
 
                 $rsData = $entity_data_class::getList(array(
-                    "select" => array("*"),
-                    "order" => array("ID" => "ASC"),
-                    "filter" => array('UF_CONTENT_ID' => $contentId)
+                    'select' => array('*'),
+                    'order' => array('ID' => 'ASC'),
+                    'filter' => array('UF_CONTENT_ID' => $contentId)
                 ));
 
                 while($arData = $rsData->Fetch()){

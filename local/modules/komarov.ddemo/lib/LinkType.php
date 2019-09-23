@@ -2,7 +2,7 @@
 namespace Komarov\Ddemo;
 
 use Bitrix\Main\Loader;
-Loader::includeModule("highloadblock");
+Loader::includeModule('highloadblock');
 
 
 class LinkType
@@ -11,10 +11,10 @@ class LinkType
     {
 
         return array(
-            "PROPERTY_TYPE" => "E",
-            "USER_TYPE" => "Link",
-            "DESCRIPTION" => "Ссылка",
-            "GetPropertyFieldHtml" => function($arProperty, $value, $strHTMLControlName){
+            'PROPERTY_TYPE' => 'E',
+            'USER_TYPE' => 'Link',
+            'DESCRIPTION' => 'Ссылка',
+            'GetPropertyFieldHtml' => function($arProperty, $value, $strHTMLControlName){
                 $id = $_GET['ID'];
                 $hlCode = 'Comments';
                 $hlBlock = \Bitrix\Highloadblock\HighloadBlockTable::getList([
