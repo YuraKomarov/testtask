@@ -19,9 +19,10 @@ Class komarov_ddemo extends CModule
 
     function __construct()
     {
+        include(__DIR__.'/version.php');
         $this->MODULE_ID = 'komarov.ddemo';
-        $this->MODULE_VERSION = '0.0.1';
-        $this->MODULE_VERSION_DATE = '2019-09-05 16:15:14';
+        $this->MODULE_VERSION = $arModuleVersion['VERSION'];
+        $this->MODULE_VERSION_DATE = $arModuleVersion['VERSION_DATE'];
         $this->MODULE_NAME = 'Komarov тестовое';
         $this->MODULE_DESCRIPTION = 'Этот модуль нужен только для того, чтобы обернуть в него компоненты(ну и потрениться))';
     }
